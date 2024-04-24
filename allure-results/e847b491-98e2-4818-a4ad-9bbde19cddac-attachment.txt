@@ -1,0 +1,38 @@
+
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                        Starting Execution: '1 out of 2' test cases in the current suite                                        
+                                     Test Method: 'automationexercise.tests.loginTest.validateInValidLogin'                                     
+                                       Test Description: 'Validate that the user can't login succesfully '                                       
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[ReportManager] Target URL: "https://demo.nopcommerce.com/" @24-04-2024 20:45:50.0971 PM
+[ReportManager] Initial URL: "about:blank" @24-04-2024 20:45:50.0989 PM
+[ReportManager] Navigate to url "https://demo.nopcommerce.com/". @24-04-2024 20:45:53.0226 PM
+[ReportManager] Moved the mouse to the middle of the element. @24-04-2024 20:45:53.0448 PM
+[ReportManager] Click "Log in". @24-04-2024 20:45:53.0472 PM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:45:53.0474 PM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:45:53.0474 PM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\registerTestData.json"". @24-04-2024 20:45:54.0447 PM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\registerTestData.json"". @24-04-2024 20:45:54.0447 PM
+[ReportManager] text cleared Using Native Clear @24-04-2024 20:45:54.0584 PM
+[ReportManager] Type "wrong@gmail.com" into "Email:". @24-04-2024 20:45:54.0616 PM
+[ReportManager] text cleared Using Native Clear @24-04-2024 20:45:54.0702 PM
+[ReportManager] Type "P@ssw0rd" into "Password:". @24-04-2024 20:45:54.0736 PM
+[ReportManager] Moved the mouse to the middle of the element. @24-04-2024 20:45:54.0907 PM
+[ReportManager] Click "LOG IN". @24-04-2024 20:45:54.0936 PM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:45:54.0937 PM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:45:54.0938 PM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:45:54.0955 PM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:45:54.0955 PM
+[ReportManager] Get text "Login was unsuccessful. Please correct the errors and try again.
+No customer account found" from "By.xpath: //div[contains(text(),'Login was unsuccessful')]". @24-04-2024 20:45:55.0316 PM
+[ReportManager] Expected "Login was unsuccessful. Please correct the errors and try again.
+No customer account found", and actual "Login was unsuccessful. Please correct the errors and try again.
+No customer account found" @24-04-2024 20:45:55.0316 PM
+[ReportManager] Verification "ValidateElementAttribute" PASSED. Expected "Value Should be 'Login was unsuccessful. Please correct the errors and try again.
+No customer account found' for the 'text' attribute, element locator 'By.xpath: //div[contains(text(),'Login was unsuccessful')]'" and Actual "Login was unsuccessful. Please correct the errors and try again.
+No customer account found". Comparison Type "EQUALS". Validation Type "POSITIVE". @24-04-2024 20:45:56.0273 PM
+[ReportManager] Verification Passed: The Element located by "By.xpath: //div[contains(text(),'Login was unsuccessful')]" text is equal to "Login was unsuccessful. Please correct the errors and try again.
+No customer account found". @24-04-2024 20:45:56.0273 PM
+[ReportManager] Successfully created attachment 'Screenshot - 1713984355716_validateInValidLogin_ValidateElementAttribute_passed' @24-04-2024 20:45:56.0306 PM
+[ReportManager] Successfully created attachment 'SHAFT Engine Logs - Current Method log: brforeMethod' @24-04-2024 20:45:56.0315 PM

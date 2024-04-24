@@ -1,0 +1,38 @@
+
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                        Starting Execution: '2 out of 2' test cases in the current suite                                        
+                                      Test Method: 'automationexercise.tests.loginTest.validateValidLogin'                                      
+                                        Test Description: 'Validate that the user can  login Succesfully'                                        
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[ReportManager] Target URL: "https://demo.nopcommerce.com/" @24-04-2024 20:45:57.0772 PM
+[ReportManager] Initial URL: "about:blank" @24-04-2024 20:45:57.0794 PM
+[ReportManager] Navigate to url "https://demo.nopcommerce.com/". @24-04-2024 20:45:59.0757 PM
+[ReportManager] Moved the mouse to the middle of the element. @24-04-2024 20:45:59.0990 PM
+[ReportManager] Click "Log in". @24-04-2024 20:46:00.0033 PM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\registerTestData.json"". @24-04-2024 20:46:00.0035 PM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\registerTestData.json"". @24-04-2024 20:46:00.0035 PM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\registerTestData.json"". @24-04-2024 20:46:00.0052 PM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\registerTestData.json"". @24-04-2024 20:46:00.0053 PM
+[ReportManager] text cleared Using Native Clear @24-04-2024 20:46:01.0046 PM
+[ReportManager] Type "true@gmail.com" into "Email:". @24-04-2024 20:46:01.0080 PM
+[ReportManager] text cleared Using Native Clear @24-04-2024 20:46:01.0141 PM
+[ReportManager] Type "P@ssw0rd" into "Password:". @24-04-2024 20:46:01.0182 PM
+[ReportManager] Moved the mouse to the middle of the element. @24-04-2024 20:46:01.0342 PM
+[ReportManager] Click "LOG IN". @24-04-2024 20:46:01.0366 PM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:46:01.0367 PM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "C:\Users\Express\IdeaProjects\Nopcommerce-automation-using-SHAFT-engine\src\test\resources\automationexercise\TestData\loginTestData.json"". @24-04-2024 20:46:01.0367 PM
+[ReportManager] Get current url "https://demo.nopcommerce.com/login?returnurl=%2F". @24-04-2024 20:46:01.0701 PM
+[ReportManager] Expected "https://demo.nopcommerce.com/", and actual "https://demo.nopcommerce.com/login?returnurl=%2F" @24-04-2024 20:46:01.0701 PM
+[ReportManager] Verification "ValidateBrowserAttribute" FAILED. Expected "Value Should be 'https://demo.nopcommerce.com/' for the 'currenturl' attribute" and Actual "https://demo.nopcommerce.com/login?returnurl=%2F". Comparison Type "EQUALS". Validation Type "POSITIVE". @24-04-2024 20:46:02.0059 PM
+[ReportManager] Verification Failed: The Browser URL is equal to "https://demo.nopcommerce.com/". @24-04-2024 20:46:02.0059 PM
+[ReportManager] Successfully created attachment 'Screenshot - 1713984361858_validateValidLogin_ValidateBrowserAttribute_failed' @24-04-2024 20:46:02.0063 PM
+[ReportManager] Successfully created attachment 'Validation Test Data - Failure Reason' @24-04-2024 20:46:02.0067 PM
+[ReportManager] Attempting to getAttribute "hidden" from elementLocator "By.className: ico-account". @24-04-2024 20:46:02.0088 PM
+[ReportManager] Expected condition failed: waiting for com.shaft.gui.element.internal.ElementActionsHelper$$Lambda$930/0x000000080157cdc0@447a3df7 (tried for 60 second(s) with 100 milliseconds interval) || no such element: Unable to locate element: {"method":"css selector","selector":".ico\-account"} @24-04-2024 20:47:02.0187 PM
+[ReportManager] Failed to Get attribute from "By.className: ico-account". @24-04-2024 20:47:02.0189 PM
+[ReportManager] Verification "ValidateElementAttribute" FAILED. Expected "Value Should be 'null' for the 'hidden' attribute, element locator 'By.className: ico-account'" and Actual "Failed to read the desired element attribute". Comparison Type "EQUALS". Validation Type "POSITIVE". @24-04-2024 20:47:02.0531 PM
+[ReportManager] Verification Failed: The Element located by "By.className: ico-account" is visible, hidden attribute is equal to "null". @24-04-2024 20:47:02.0532 PM
+[ReportManager] Successfully created attachment 'Screenshot - 1713984422319_validateValidLogin_ValidateElementAttribute_failed' @24-04-2024 20:47:02.0540 PM
+[ReportManager] Successfully created attachment 'Validation Test Data - Failure Reason' @24-04-2024 20:47:02.0544 PM
+[ReportManager] Successfully created attachment 'SHAFT Engine Logs - Current Method log: brforeMethod' @24-04-2024 20:47:02.0551 PM
