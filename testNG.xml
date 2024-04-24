@@ -30,7 +30,7 @@
                     <include name="validateHover" />
                 </methods>
             </class>
-            <class name="automationexercise.tests.followUsTest">
+            <class name="automationexercise.tests.FollowUsTest">
                 <methods>
                     <include name="validateFacebook" />
                     <include name="validateTwitter" />

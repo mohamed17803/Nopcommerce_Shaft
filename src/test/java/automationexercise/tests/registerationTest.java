@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 public class registerationTest extends testBase {
     private JSONFileManager testData;
 
-    @Test(description= "Validate that the User can register with valid account succsesfully")
+    @Test(description= "Validate that the User can register with valid account successfully")
     public void validateRegister() {
         new registerationPage(driver).urlNavigate().clickOnRegisterTabButton().chooseGender().
                 fillRegisterData(testData.getTestData("firstName"), testData.getTestData("lastName"),
@@ -24,6 +24,6 @@ public class registerationTest extends testBase {
     @BeforeClass
     @Description("Setting Json File ")
     public void baforeCLass(){
-       testData= new JSONFileManager("C:\\Users\\Mtech\\IdeaProjects\\demonopcommerce\\src\\test\\resources\\automationexercise\\TestData\\registerTestData.json");
+       testData= new JSONFileManager("src/test/resources/automationexercise/TestData/registerTestData.json");
     }
 }

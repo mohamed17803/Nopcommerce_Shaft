@@ -34,8 +34,8 @@ public class followUsPage {
         return this;
     }
     @SneakyThrows
-    @Step("Validate that when the user click on Twitterink Navigate to Twitter page ")
-    public followUsPage validateTwitterink(String expectedTwitterUrl){
+    @Step("Validate that when the user click on Twitter link Navigate to Twitter page ")
+    public followUsPage validateTwitterlink(String expectedTwitterUrl){
         String minWindowsHandle = driver.getDriver().getWindowHandle();
         driver.element().click(twitterink);
         //Thread.sleep(12000);

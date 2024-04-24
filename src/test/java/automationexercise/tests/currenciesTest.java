@@ -11,15 +11,15 @@ import org.testng.annotations.*;
 public class currenciesTest extends testBase {
     private JSONFileManager testData;
 
-    @Test(description = "Validate that when  the user changes currence then the currence will be changed Automaticlly in the products ")
+    @Test(description = "Validate that when  the user changes currence then the currency will be changed Automatically in the products ")
     public void validateCurrence(){
-        new currenciesPage(driver).urlNavigate().clickOnCurrenceDropDownList(testData.getTestData("currensy"))
-                .getAndAssertText(testData.getTestData("currensySymbol"));
+        new currenciesPage(driver).urlNavigate().clickOnCurrenceDropDownList(testData.getTestData("currency"))
+                .getAndAssertText(testData.getTestData("currencySymbol"));
 
     }
     @BeforeClass
     @Description("Setting json file   ")
     public void beforeClass(){
-        testData=new JSONFileManager("C:\\Users\\Mtech\\IdeaProjects\\demonopcommerce\\src\\test\\resources\\automationexercise\\TestData\\currenciesTestData.json");
+        testData=new JSONFileManager("src/test/resources/automationexercise/TestData/currenciesTestData.json");
     }
 }

@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Extent Reports</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Extent Reports - Powered by SHAFT_Engine</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Apr 25, 2024 12:49:58 AM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Apr 25, 2024 12:49:58 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Apr 25, 2024 12:50:09 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>1</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='50%'><b>1</b> tests failed,
+<b>1</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
+<div>
+<small data-tooltip='10%'><b>1</b> events failed,
+<b data-tooltip='%'>9</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"Validate that the user can't login successfully ":7.258,"Validate that the user can login Successfully":0.014
+};
+</script>
+<div class="row">
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 1,
+warningParent: 0,
+skipParent: 1,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 0,
+failEvents: 1,
+warningEvents: 0,
+skipEvents: 1,
+infoEvents: 8
+};
+</script><div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Validate that the user can't login successfully </p>
+            <p class="text-sm">
+              <span>12:50:02 AM</span> / <span>00:00:07:258</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Validate that the user can't login successfully </h5>
+<span class='badge badge-success'>04.25.2024 12:50:02 AM</span>
+<span class='badge badge-danger'>04.25.2024 12:50:09 AM</span>
+<span class='badge badge-default'>00:00:07:258</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:04 AM</td>
+        <td>
+          Navigate to url "https://demo.nopcommerce.com/".
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:05 AM</td>
+        <td>
+          Navigate to url "https://demo.nopcommerce.com/".
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:05 AM</td>
+        <td>
+          Navigate to url "https://demo.nopcommerce.com/".
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:06 AM</td>
+        <td>
+          Navigate to url "https://demo.nopcommerce.com/".
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:06 AM</td>
+        <td>
+          Navigate to url "https://demo.nopcommerce.com/".
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:07 AM</td>
+        <td>
+          Navigate to url "https://demo.nopcommerce.com/".
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:09 AM</td>
+        <td>
+          Failed to capture screenshot Root cause: "java.nio.channels.ClosedChannelException: "
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:50:09 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+        <a href="data:image/png;base64,b3JnLm9wZW5xYS5zZWxlbml1bS5yZW1vdGUuVW5yZWFjaGFibGVCcm93c2VyRXhjZXB0aW9uOiBFcnJvciBjb21tdW5pY2F0aW5nIHdpdGggdGhlIHJlbW90ZSBicm93c2VyLiBJdCBtYXkgaGF2ZSBkaWVkLgpCdWlsZCBpbmZvOiB2ZXJzaW9uOiAnNC4xNi4xJywgcmV2aXNpb246ICc5YjRjODMzNTRlJwpTeXN0ZW0gaW5mbzogb3MubmFtZTogJ1dpbmRvd3MgMTEnLCBvcy5hcmNoOiAnYW1kNjQnLCBvcy52ZXJzaW9uOiAnMTAuMCcsIGphdmEudmVyc2lvbjogJzE5LjAuMicKRHJpdmVyIGluZm86IG9yZy5vcGVucWEuc2VsZW5pdW0uY2hyb21lLkNocm9tZURyaXZlcgpDb21tYW5kOiBbODQ0MzI2MGEzMmE2YWVlOTgyYWNkZjkwMzc1ZGZkODEsIHNjcmVlbnNob3QgW11dCkNhcGFiaWxpdGllcyB7YWNjZXB0SW5zZWN1cmVDZXJ0czogdHJ1ZSwgYnJvd3Nlck5hbWU6IGNocm9tZSwgYnJvd3NlclZlcnNpb246IDEyNC4wLjYzNjcuNjEsIGNocm9tZToge2Nocm9tZWRyaXZlclZlcnNpb246IDEyNC4wLjYzNjcuNzggKGEwODdmMmRkMzY0ZC4uLiwgdXNlckRhdGFEaXI6IEM6XFVzZXJzXEV4cHJlc3NcQXBwRGF0YVxMby4uLn0sIGZlZGNtOmFjY291bnRzOiB0cnVlLCBnb29nOmNocm9tZU9wdGlvbnM6IHtkZWJ1Z2dlckFkZHJlc3M6IGxvY2FsaG9zdDo2NDg5NX0sIG5ldHdvcmtDb25uZWN0aW9uRW5hYmxlZDogZmFsc2UsIHBhZ2VMb2FkU3RyYXRlZ3k6IG5vbmUsIHBsYXRmb3JtTmFtZTogd2luZG93cywgcHJveHk6IFByb3h5KCksIHNlOmNkcDogd3M6Ly9sb2NhbGhvc3Q6NjQ4OTUvZGV2dG9vLi4uLCBzZTpjZHBWZXJzaW9uOiAxMjQuMC42MzY3LjYxLCBzZXRXaW5kb3dSZWN0OiB0cnVlLCBzdHJpY3RGaWxlSW50ZXJhY3RhYmlsaXR5OiBmYWxzZSwgdGltZW91dHM6IHtpbXBsaWNpdDogMCwgcGFnZUxvYWQ6IDYwMDAwLCBzY3JpcHQ6IDYwMDAwfSwgdW5oYW5kbGVkUHJvbXB0QmVoYXZpb3I6IGlnbm9yZSwgd2ViU29ja2V0VXJsOiB3czovL2xvY2FsaG9zdDozNTc4NC9zZXNzaW8uLi4sIHdlYmF1dGhuOmV4dGVuc2lvbjpjcmVkQmxvYjogdHJ1ZSwgd2ViYXV0aG46ZXh0ZW5zaW9uOmxhcmdlQmxvYjogdHJ1ZSwgd2ViYXV0aG46ZXh0ZW5zaW9uOm1pblBpbkxlbmd0aDogdHJ1ZSwgd2ViYXV0aG46ZXh0ZW5zaW9uOnByZjogdHJ1ZSwgd2ViYXV0aG46dmlydHVhbEF1dGhlbnRpY2F0b3JzOiB0cnVlfQpTZXNzaW9uIElEOiA4NDQzMjYwYTMyYTZhZWU5ODJhY2RmOTAzNzVkZmQ4MQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLlJlbW90ZVdlYkRyaXZlci5leGVjdXRlKFJlbW90ZVdlYkRyaXZlci5qYXZhOjU1MCkNCiBvcmcub3BlbnFhLnNlbGVuaXVtLnJlbW90ZS5SZW1vdGVXZWJEcml2ZXIuZXhlY3V0ZShSZW1vdGVXZWJEcml2ZXIuamF2YTo1OTYpDQogb3JnLm9wZW5xYS5zZWxlbml1bS5yZW1vdGUuUmVtb3RlV2ViRHJpdmVyLmV4ZWN1dGUoUmVtb3RlV2ViRHJpdmVyLmphdmE6NjAwKQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLlJlbW90ZVdlYkRyaXZlci5nZXRTY3JlZW5zaG90QXMoUmVtb3RlV2ViRHJpdmVyLmphdmE6MzI2KQ0KIGNvbS5zaGFmdC5ndWkuaW50ZXJuYWwuaW1hZ2UuU2NyZWVuc2hvdE1hbmFnZXIudGFrZVZpZXdwb3J0U2NyZWVuc2hvdChTY3JlZW5zaG90TWFuYWdlci5qYXZhOjIyMikNCiBjb20uc2hhZnQuZ3VpLmludGVybmFsLmltYWdlLlNjcmVlbnNob3RNYW5hZ2VyLnRha2VGdWxsUGFnZVNjcmVlbnNob3QoU2NyZWVuc2hvdE1hbmFnZXIuamF2YToyNTUpDQogY29tLnNoYWZ0Lmd1aS5pbnRlcm5hbC5pbWFnZS5TY3JlZW5zaG90TWFuYWdlci50YWtlU2NyZWVuc2hvdChTY3JlZW5zaG90TWFuYWdlci5qYXZhOjQwNykNCiBjb20uc2hhZnQuZ3VpLmludGVybmFsLmltYWdlLlNjcmVlbnNob3RNYW5hZ2VyLmludGVybmFsQ2FwdHVyZVNjcmVlblNob3QoU2NyZWVuc2hvdE1hbmFnZXIuamF2YTozNTMpDQogY29tLnNoYWZ0Lmd1aS5pbnRlcm5hbC5pbWFnZS5TY3JlZW5zaG90TWFuYWdlci5jYXB0dXJlU2NyZWVuU2hvdChTY3JlZW5zaG90TWFuYWdlci5qYXZhOjEwOSkNCiBjb20uc2hhZnQuZ3VpLmJyb3dzZXIuaW50ZXJuYWwuQnJvd3NlckFjdGlvbnNIZWxwZXIucmVwb3J0QWN0aW9uUmVzdWx0KEJyb3dzZXJBY3Rpb25zSGVscGVyLmphdmE6MTA0KQ0KIGNvbS5zaGFmdC5ndWkuYnJvd3Nlci5pbnRlcm5hbC5Ccm93c2VyQWN0aW9uc0hlbHBlci5mYWlsQWN0aW9uKEJyb3dzZXJBY3Rpb25zSGVscGVyLmphdmE6NjQpDQogY29tLnNoYWZ0Lmd1aS5icm93c2VyLmludGVybmFsLkJyb3dzZXJBY3Rpb25zSGVscGVyLmZhaWxBY3Rpb24oQnJvd3NlckFjdGlvbnNIZWxwZXIuamF2YTo1OSkNCiBjb20uc2hhZnQuZ3VpLmJyb3dzZXIuQnJvd3NlckFjdGlvbnMubmF2aWdhdGVUb1VSTChCcm93c2VyQWN0aW9ucy5qYXZhOjM1NikNCiBjb20uc2hhZnQuZ3VpLmJyb3dzZXIuQnJvd3NlckFjdGlvbnMubmF2aWdhdGVUb1VSTChCcm93c2VyQWN0aW9ucy5qYXZhOjI2NykNCiBhdXRvbWF0aW9uZXhlcmNpc2UucGFnZXMuTG9naW5QYWdlLnVybE5hdmlnYXRlKExvZ2luUGFnZS5qYXZhOjE1KQ0KIGF1dG9tYXRpb25leGVyY2lzZS5wYWdlcy5Mb2dpblBhZ2UudXJsTmF2aWdhdGUoTG9naW5QYWdlLmphdmE6MTYpDQogYXV0b21hdGlvbmV4ZXJjaXNlLnBhZ2VzLkxvZ2luUGFnZS51cmxOYXZpZ2F0ZShMb2dpblBhZ2UuamF2YToxNikNCiBhdXRvbWF0aW9uZXhlcmNpc2UucGFnZXMuTG9naW5QYWdlLnVybE5hdmlnYXRlKExvZ2luUGFnZS5qYXZhOjE2KQ0KIGF1dG9tYXRpb25leGVyY2lzZS5wYWdlcy5Mb2dpblBhZ2UudXJsTmF2aWdhdGUoTG9naW5QYWdlLmphdmE6MTYpDQogYXV0b21hdGlvbmV4ZXJjaXNlLnBhZ2VzLkxvZ2luUGFnZS51cmxOYXZpZ2F0ZShMb2dpblBhZ2UuamF2YToxNikNCiBhdXRvbWF0aW9uZXhlcmNpc2UucGFnZXMuTG9naW5QYWdlLnVybE5hdmlnYXRlKExvZ2luUGFnZS5qYXZhOjE2KQ0KIGF1dG9tYXRpb25leGVyY2lzZS50ZXN0cy5Mb2dpblRlc3QudmFsaWRhdGVJblZhbGlkTG9naW4oTG9naW5UZXN0LmphdmE6MjMpDQogamF2YS5iYXNlL2pkay5pbnRlcm5hbC5yZWZsZWN0LkRpcmVjdE1ldGhvZEhhbmRsZUFjY2Vzc29yLmludm9rZShEaXJlY3RNZXRob2RIYW5kbGVBY2Nlc3Nvci5qYXZhOjEwNCkNCiBqYXZhLmJhc2UvamF2YS5sYW5nLnJlZmxlY3QuTWV0aG9kLmludm9rZShNZXRob2QuamF2YTo1NzgpDQogb3JnLnRlc3RuZy5pbnRlcm5hbC5pbnZva2Vycy5NZXRob2RJbnZvY2F0aW9uSGVscGVyLmludm9rZU1ldGhvZChNZXRob2RJbnZvY2F0aW9uSGVscGVyLmphdmE6MTM5KQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdEludm9rZXIuaW52b2tlTWV0aG9kKFRlc3RJbnZva2VyLmphdmE6NjY0KQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdEludm9rZXIuaW52b2tlVGVzdE1ldGhvZChUZXN0SW52b2tlci5qYXZhOjIyNykNCiBvcmcudGVzdG5nLmludGVybmFsLmludm9rZXJzLk1ldGhvZFJ1bm5lci5ydW5JblNlcXVlbmNlKE1ldGhvZFJ1bm5lci5qYXZhOjUwKQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdEludm9rZXIkTWV0aG9kSW52b2NhdGlvbkFnZW50Lmludm9rZShUZXN0SW52b2tlci5qYXZhOjk1NykNCiBvcmcudGVzdG5nLmludGVybmFsLmludm9rZXJzLlRlc3RJbnZva2VyLmludm9rZVRlc3RNZXRob2RzKFRlc3RJbnZva2VyLmphdmE6MjAwKQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdE1ldGhvZFdvcmtlci5pbnZva2VUZXN0TWV0aG9kcyhUZXN0TWV0aG9kV29ya2VyLmphdmE6MTQ4KQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdE1ldGhvZFdvcmtlci5ydW4oVGVzdE1ldGhvZFdvcmtlci5qYXZhOjEyOCkNCiBqYXZhLmJhc2UvamF2YS51dGlsLkFycmF5TGlzdC5mb3JFYWNoKEFycmF5TGlzdC5qYXZhOjE1MTEpDQogb3JnLnRlc3RuZy5UZXN0UnVubmVyLnByaXZhdGVSdW4oVGVzdFJ1bm5lci5qYXZhOjg0OCkNCiBvcmcudGVzdG5nLlRlc3RSdW5uZXIucnVuKFRlc3RSdW5uZXIuamF2YTo2MjEpDQogb3JnLnRlc3RuZy5TdWl0ZVJ1bm5lci5ydW5UZXN0KFN1aXRlUnVubmVyLmphdmE6NDQzKQ0KIG9yZy50ZXN0bmcuU3VpdGVSdW5uZXIucnVuU2VxdWVudGlhbGx5KFN1aXRlUnVubmVyLmphdmE6NDM3KQ0KIG9yZy50ZXN0bmcuU3VpdGVSdW5uZXIucHJpdmF0ZVJ1bihTdWl0ZVJ1bm5lci5qYXZhOjM5NykNCiBvcmcudGVzdG5nLlN1aXRlUnVubmVyLnJ1bihTdWl0ZVJ1bm5lci5qYXZhOjMzNikNCiBvcmcudGVzdG5nLlN1aXRlUnVubmVyV29ya2VyLnJ1blN1aXRlKFN1aXRlUnVubmVyV29ya2VyLmphdmE6NTIpDQogb3JnLnRlc3RuZy5TdWl0ZVJ1bm5lcldvcmtlci5ydW4oU3VpdGVSdW5uZXJXb3JrZXIuamF2YTo5NSkNCiBvcmcudGVzdG5nLlRlc3RORy5ydW5TdWl0ZXNTZXF1ZW50aWFsbHkoVGVzdE5HLmphdmE6MTI4MCkNCiBvcmcudGVzdG5nLlRlc3RORy5ydW5TdWl0ZXNMb2NhbGx5KFRlc3RORy5qYXZhOjEyMDApDQogb3JnLnRlc3RuZy5UZXN0TkcucnVuU3VpdGVzKFRlc3RORy5qYXZhOjExMTQpDQogb3JnLnRlc3RuZy5UZXN0TkcucnVuKFRlc3RORy5qYXZhOjEwODIpDQogY29tLmludGVsbGlqLnJ0LnRlc3RuZy5JREVBUmVtb3RlVGVzdE5HLnJ1bihJREVBUmVtb3RlVGVzdE5HLmphdmE6NjUpDQogY29tLmludGVsbGlqLnJ0LnRlc3RuZy5SZW1vdGVUZXN0TkdTdGFydGVyLm1haW4oUmVtb3RlVGVzdE5HU3RhcnRlci5qYXZhOjEwNSkNCg0KQ2F1c2VkIGJ5OiBqYXZhLmlvLlVuY2hlY2tlZElPRXhjZXB0aW9uOiBqYXZhLm5ldC5Db25uZWN0RXhjZXB0aW9uDQogb3JnLm9wZW5xYS5zZWxlbml1bS5yZW1vdGUuaHR0cC5qZGsuSmRrSHR0cENsaWVudC5leGVjdXRlMChKZGtIdHRwQ2xpZW50LmphdmE6NDQyKQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLmh0dHAuQWRkU2VsZW5pdW1Vc2VyQWdlbnQubGFtYmRhJGFwcGx5JDAoQWRkU2VsZW5pdW1Vc2VyQWdlbnQuamF2YTo0MikNCiBvcmcub3BlbnFhLnNlbGVuaXVtLnJlbW90ZS5odHRwLkZpbHRlci5sYW1iZGEkYW5kRmluYWxseSQxKEZpbHRlci5qYXZhOjU1KQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLmh0dHAuamRrLkpka0h0dHBDbGllbnQuZXhlY3V0ZShKZGtIdHRwQ2xpZW50LmphdmE6MzU4KQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLkh0dHBDb21tYW5kRXhlY3V0b3IuZXhlY3V0ZShIdHRwQ29tbWFuZEV4ZWN1dG9yLmphdmE6MTg4KQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLnNlcnZpY2UuRHJpdmVyQ29tbWFuZEV4ZWN1dG9yLmludm9rZUV4ZWN1dGUoRHJpdmVyQ29tbWFuZEV4ZWN1dG9yLmphdmE6MjAwKQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLnNlcnZpY2UuRHJpdmVyQ29tbWFuZEV4ZWN1dG9yLmV4ZWN1dGUoRHJpdmVyQ29tbWFuZEV4ZWN1dG9yLmphdmE6MTc1KQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLlJlbW90ZVdlYkRyaXZlci5leGVjdXRlKFJlbW90ZVdlYkRyaXZlci5qYXZhOjUyMykNCiBvcmcub3BlbnFhLnNlbGVuaXVtLnJlbW90ZS5SZW1vdGVXZWJEcml2ZXIuZXhlY3V0ZShSZW1vdGVXZWJEcml2ZXIuamF2YTo1OTYpDQogb3JnLm9wZW5xYS5zZWxlbml1bS5yZW1vdGUuUmVtb3RlV2ViRHJpdmVyLmV4ZWN1dGUoUmVtb3RlV2ViRHJpdmVyLmphdmE6NjAwKQ0KIG9yZy5vcGVucWEuc2VsZW5pdW0ucmVtb3RlLlJlbW90ZVdlYkRyaXZlci5nZXRTY3JlZW5zaG90QXMoUmVtb3RlV2ViRHJpdmVyLmphdmE6MzI2KQ0KIGNvbS5zaGFmdC5ndWkuaW50ZXJuYWwuaW1hZ2UuU2NyZWVuc2hvdE1hbmFnZXIudGFrZVZpZXdwb3J0U2NyZWVuc2hvdChTY3JlZW5zaG90TWFuYWdlci5qYXZhOjIyMikNCiBjb20uc2hhZnQuZ3VpLmludGVybmFsLmltYWdlLlNjcmVlbnNob3RNYW5hZ2VyLnRha2VGdWxsUGFnZVNjcmVlbnNob3QoU2NyZWVuc2hvdE1hbmFnZXIuamF2YToyNTUpDQogY29tLnNoYWZ0Lmd1aS5pbnRlcm5hbC5pbWFnZS5TY3JlZW5zaG90TWFuYWdlci50YWtlU2NyZWVuc2hvdChTY3JlZW5zaG90TWFuYWdlci5qYXZhOjQwNykNCiBjb20uc2hhZnQuZ3VpLmludGVybmFsLmltYWdlLlNjcmVlbnNob3RNYW5hZ2VyLmludGVybmFsQ2FwdHVyZVNjcmVlblNob3QoU2NyZWVuc2hvdE1hbmFnZXIuamF2YTozNTMpDQogY29tLnNoYWZ0Lmd1aS5pbnRlcm5hbC5pbWFnZS5TY3JlZW5zaG90TWFuYWdlci5jYXB0dXJlU2NyZWVuU2hvdChTY3JlZW5zaG90TWFuYWdlci5qYXZhOjEwOSkNCiBjb20uc2hhZnQuZ3VpLmJyb3dzZXIuaW50ZXJuYWwuQnJvd3NlckFjdGlvbnNIZWxwZXIucmVwb3J0QWN0aW9uUmVzdWx0KEJyb3dzZXJBY3Rpb25zSGVscGVyLmphdmE6MTA0KQ0KIGNvbS5zaGFmdC5ndWkuYnJvd3Nlci5pbnRlcm5hbC5Ccm93c2VyQWN0aW9uc0hlbHBlci5mYWlsQWN0aW9uKEJyb3dzZXJBY3Rpb25zSGVscGVyLmphdmE6NjQpDQogY29tLnNoYWZ0Lmd1aS5icm93c2VyLmludGVybmFsLkJyb3dzZXJBY3Rpb25zSGVscGVyLmZhaWxBY3Rpb24oQnJvd3NlckFjdGlvbnNIZWxwZXIuamF2YTo1OSkNCiBjb20uc2hhZnQuZ3VpLmJyb3dzZXIuQnJvd3NlckFjdGlvbnMubmF2aWdhdGVUb1VSTChCcm93c2VyQWN0aW9ucy5qYXZhOjM1NikNCiBjb20uc2hhZnQuZ3VpLmJyb3dzZXIuQnJvd3NlckFjdGlvbnMubmF2aWdhdGVUb1VSTChCcm93c2VyQWN0aW9ucy5qYXZhOjI2NykNCiBhdXRvbWF0aW9uZXhlcmNpc2UucGFnZXMuTG9naW5QYWdlLnVybE5hdmlnYXRlKExvZ2luUGFnZS5qYXZhOjE1KQ0KIGF1dG9tYXRpb25leGVyY2lzZS5wYWdlcy5Mb2dpblBhZ2UudXJsTmF2aWdhdGUoTG9naW5QYWdlLmphdmE6MTYpDQogYXV0b21hdGlvbmV4ZXJjaXNlLnBhZ2VzLkxvZ2luUGFnZS51cmxOYXZpZ2F0ZShMb2dpblBhZ2UuamF2YToxNikNCiBhdXRvbWF0aW9uZXhlcmNpc2UucGFnZXMuTG9naW5QYWdlLnVybE5hdmlnYXRlKExvZ2luUGFnZS5qYXZhOjE2KQ0KIGF1dG9tYXRpb25leGVyY2lzZS5wYWdlcy5Mb2dpblBhZ2UudXJsTmF2aWdhdGUoTG9naW5QYWdlLmphdmE6MTYpDQogYXV0b21hdGlvbmV4ZXJjaXNlLnBhZ2VzLkxvZ2luUGFnZS51cmxOYXZpZ2F0ZShMb2dpblBhZ2UuamF2YToxNikNCiBhdXRvbWF0aW9uZXhlcmNpc2UucGFnZXMuTG9naW5QYWdlLnVybE5hdmlnYXRlKExvZ2luUGFnZS5qYXZhOjE2KQ0KIGF1dG9tYXRpb25leGVyY2lzZS50ZXN0cy5Mb2dpblRlc3QudmFsaWRhdGVJblZhbGlkTG9naW4oTG9naW5UZXN0LmphdmE6MjMpDQogamF2YS5iYXNlL2pkay5pbnRlcm5hbC5yZWZsZWN0LkRpcmVjdE1ldGhvZEhhbmRsZUFjY2Vzc29yLmludm9rZShEaXJlY3RNZXRob2RIYW5kbGVBY2Nlc3Nvci5qYXZhOjEwNCkNCiBqYXZhLmJhc2UvamF2YS5sYW5nLnJlZmxlY3QuTWV0aG9kLmludm9rZShNZXRob2QuamF2YTo1NzgpDQogb3JnLnRlc3RuZy5pbnRlcm5hbC5pbnZva2Vycy5NZXRob2RJbnZvY2F0aW9uSGVscGVyLmludm9rZU1ldGhvZChNZXRob2RJbnZvY2F0aW9uSGVscGVyLmphdmE6MTM5KQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdEludm9rZXIuaW52b2tlTWV0aG9kKFRlc3RJbnZva2VyLmphdmE6NjY0KQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdEludm9rZXIuaW52b2tlVGVzdE1ldGhvZChUZXN0SW52b2tlci5qYXZhOjIyNykNCiBvcmcudGVzdG5nLmludGVybmFsLmludm9rZXJzLk1ldGhvZFJ1bm5lci5ydW5JblNlcXVlbmNlKE1ldGhvZFJ1bm5lci5qYXZhOjUwKQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdEludm9rZXIkTWV0aG9kSW52b2NhdGlvbkFnZW50Lmludm9rZShUZXN0SW52b2tlci5qYXZhOjk1NykNCiBvcmcudGVzdG5nLmludGVybmFsLmludm9rZXJzLlRlc3RJbnZva2VyLmludm9rZVRlc3RNZXRob2RzKFRlc3RJbnZva2VyLmphdmE6MjAwKQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdE1ldGhvZFdvcmtlci5pbnZva2VUZXN0TWV0aG9kcyhUZXN0TWV0aG9kV29ya2VyLmphdmE6MTQ4KQ0KIG9yZy50ZXN0bmcuaW50ZXJuYWwuaW52b2tlcnMuVGVzdE1ldGhvZFdvcmtlci5ydW4oVGVzdE1ldGhvZFdvcmtlci5qYXZhOjEyOCkNCiBqYXZhLmJhc2UvamF2YS51dGlsLkFycmF5TGlzdC5mb3JFYWNoKEFycmF5TGlzdC5qYXZhOjE1MTEpDQogb3JnLnRlc3RuZy5UZXN0UnVubmVyLnByaXZhdGVSdW4oVGVzdFJ1bm5lci5qYXZhOjg0OCkNCiBvcmcudGVzdG5nLlRlc3RSdW5uZXIucnVuKFRlc3RSdW5uZXIuamF2YTo2MjEpDQogb3JnLnRlc3RuZy5TdWl0ZVJ1bm5lci5ydW5UZXN0KFN1aXRlUnVubmVyLmphdmE6NDQzKQ0KIG9yZy50ZXN0bmcuU3VpdGVSdW5uZXIucnVuU2VxdWVudGlhbGx5KFN1aXRlUnVubmVyLmphdmE6NDM3KQ0KIG9yZy50ZXN0bmcuU3VpdGVSdW5uZXIucHJpdmF0ZVJ1bihTdWl0ZVJ1bm5lci5qYXZhOjM5NykNCiBvcmcudGVzdG5nLlN1aXRlUnVubmVyLnJ1bihTdWl0ZVJ1bm5lci5qYXZhOjMzNikNCiBvcmcudGVzdG5nLlN1aXRlUnVubmVyV29ya2VyLnJ1blN1aXRlKFN1aXRlUnVubmVyV29ya2VyLmphdmE6NTIpDQogb3JnLnRlc3RuZy5TdWl0ZVJ1bm5lcldvcmtlci5ydW4oU3VpdGVSdW5uZXJXb3JrZXIuamF2YTo5NSkNCiBvcmcudGVzdG5nLlRlc3RORy5ydW5TdWl0ZXNTZXF1ZW50aWFsbHkoVGVzdE5HLmphdmE6MTI4MCkNCiBvcmcudGVzdG5nLlRlc3RORy5ydW5TdWl0ZXNMb2NhbGx5KFRlc3RORy5qYXZhOjEyMDApDQogb3JnLnRlc3RuZy5UZXN0TkcucnVuU3VpdGVzKFRlc3RORy5qYXZhOjExMTQpDQogb3JnLnRlc3RuZy5UZXN0TkcucnVuKFRlc3RORy5qYXZhOjEwODIpDQogY29tLmludGVsbGlqLnJ0LnRlc3RuZy5JREVBUmVtb3RlVGVzdE5HLnJ1bihJREVBUmVtb3RlVGVzdE5HLmphdmE6NjUpDQogY29tLmludGVsbGlqLnJ0LnRlc3RuZy5SZW1vdGVUZXN0TkdTdGFydGVyLm1haW4oUmVtb3RlVGVzdE5HU3RhcnRlci5qYXZhOjEwNSkNCg0KQ2F1c2VkIGJ5OiBqYXZhLm5ldC5Db25uZWN0RXhjZXB0aW9uOiBudWxsDQogamF2YS5uZXQuaHR0cC9qZGsuaW50ZXJuYWwubmV0Lmh0dHAuY29tbW9uLlV0aWxzLnRvQ29ubmVjdEV4Y2VwdGlvbihVdGlscy5qYXZhOjEwNDUpDQogamF2YS5uZXQuaHR0cC9qZGsuaW50ZXJuYWwubmV0Lmh0dHAuUGxhaW5IdHRwQ29ubmVjdGlvbi5jb25uZWN0QXN5bmMoUGxhaW5IdHRwQ29ubmVjdGlvbi5qYXZhOjIyNCkNCiBqYXZhLm5ldC5odHRwL2pkay5pbnRlcm5hbC5uZXQuaHR0cC5QbGFpbkh0dHBDb25uZWN0aW9uLmNoZWNrUmV0cnlDb25uZWN0KFBsYWluSHR0cENvbm5lY3Rpb24uamF2YToyNTkpDQogamF2YS5uZXQuaHR0cC9qZGsuaW50ZXJuYWwubmV0Lmh0dHAuUGxhaW5IdHRwQ29ubmVjdGlvbi5sYW1iZGEkY29ubmVjdEFzeW5jJDIoUGxhaW5IdHRwQ29ubmVjdGlvbi5qYXZhOjIzNSkNCiBqYXZhLmJhc2UvamF2YS51dGlsLmNvbmN1cnJlbnQuQ29tcGxldGFibGVGdXR1cmUudW5pSGFuZGxlKENvbXBsZXRhYmxlRnV0dXJlLmphdmE6OTM0KQ0KIGphdmEuYmFzZS9qYXZhLnV0aWwuY29uY3VycmVudC5Db21wbGV0YWJsZUZ1dHVyZSRVbmlIYW5kbGUudHJ5RmlyZShDb21wbGV0YWJsZUZ1dHVyZS5qYXZhOjkxMSkNCiBqYXZhLmJhc2UvamF2YS51dGlsLmNvbmN1cnJlbnQuQ29tcGxldGFibGVGdXR1cmUucG9zdENvbXBsZXRlKENvbXBsZXRhYmxlRnV0dXJlLmphdmE6NTEwKQ0KIGphdmEuYmFzZS9qYXZhLnV0aWwuY29uY3VycmVudC5Db21wbGV0YWJsZUZ1dHVyZSRBc3luY1N1cHBseS5ydW4oQ29tcGxldGFibGVGdXR1cmUuamF2YToxNzczKQ0KIGphdmEuYmFzZS9qYXZhLnV0aWwuY29uY3VycmVudC5UaHJlYWRQb29sRXhlY3V0b3IucnVuV29ya2VyKFRocmVhZFBvb2xFeGVjdXRvci5qYXZhOjExNDQpDQogamF2YS5iYXNlL2phdmEudXRpbC5jb25jdXJyZW50LlRocmVhZFBvb2xFeGVjdXRvciRXb3JrZXIucnVuKFRocmVhZFBvb2xFeGVjdXRvci5qYXZhOjY0MikNCiBqYXZhLmJhc2UvamF2YS5sYW5nLlRocmVhZC5ydW4oVGhyZWFkLmphdmE6MTU4OSkNCg0KQ2F1c2VkIGJ5OiBqYXZhLm5pby5jaGFubmVscy5DbG9zZWRDaGFubmVsRXhjZXB0aW9uOiBudWxsDQogamF2YS5iYXNlL3N1bi5uaW8uY2guU29ja2V0Q2hhbm5lbEltcGwuZW5zdXJlT3BlbihTb2NrZXRDaGFubmVsSW1wbC5qYXZhOjIwMikNCiBqYXZhLmJhc2Uvc3VuLm5pby5jaC5Tb2NrZXRDaGFubmVsSW1wbC5iZWdpbkNvbm5lY3QoU29ja2V0Q2hhbm5lbEltcGwuamF2YTo3ODYpDQogamF2YS5iYXNlL3N1bi5uaW8uY2guU29ja2V0Q2hhbm5lbEltcGwuY29ubmVjdChTb2NrZXRDaGFubmVsSW1wbC5qYXZhOjg3NCkNCiBqYXZhLm5ldC5odHRwL2pkay5pbnRlcm5hbC5uZXQuaHR0cC5QbGFpbkh0dHBDb25uZWN0aW9uLmxhbWJkYSRjb25uZWN0QXN5bmMkMShQbGFpbkh0dHBDb25uZWN0aW9uLmphdmE6MjA4KQ0KIGphdmEuYmFzZS9qYXZhLnNlY3VyaXR5LkFjY2Vzc0NvbnRyb2xsZXIuZG9Qcml2aWxlZ2VkKEFjY2Vzc0NvbnRyb2xsZXIuamF2YTo1NjkpDQogamF2YS5uZXQuaHR0cC9qZGsuaW50ZXJuYWwubmV0Lmh0dHAuUGxhaW5IdHRwQ29ubmVjdGlvbi5jb25uZWN0QXN5bmMoUGxhaW5IdHRwQ29ubmVjdGlvbi5qYXZhOjIxMCkNCiBqYXZhLm5ldC5odHRwL2pkay5pbnRlcm5hbC5uZXQuaHR0cC5QbGFpbkh0dHBDb25uZWN0aW9uLmNoZWNrUmV0cnlDb25uZWN0KFBsYWluSHR0cENvbm5lY3Rpb24uamF2YToyNTkpDQogamF2YS5uZXQuaHR0cC9qZGsuaW50ZXJuYWwubmV0Lmh0dHAuUGxhaW5IdHRwQ29ubmVjdGlvbi5sYW1iZGEkY29ubmVjdEFzeW5jJDIoUGxhaW5IdHRwQ29ubmVjdGlvbi5qYXZhOjIzNSkNCiBqYXZhLmJhc2UvamF2YS51dGlsLmNvbmN1cnJlbnQuQ29tcGxldGFibGVGdXR1cmUudW5pSGFuZGxlKENvbXBsZXRhYmxlRnV0dXJlLmphdmE6OTM0KQ0KIGphdmEuYmFzZS9qYXZhLnV0aWwuY29uY3VycmVudC5Db21wbGV0YWJsZUZ1dHVyZSRVbmlIYW5kbGUudHJ5RmlyZShDb21wbGV0YWJsZUZ1dHVyZS5qYXZhOjkxMSkNCiBqYXZhLmJhc2UvamF2YS51dGlsLmNvbmN1cnJlbnQuQ29tcGxldGFibGVGdXR1cmUucG9zdENvbXBsZXRlKENvbXBsZXRhYmxlRnV0dXJlLmphdmE6NTEwKQ0KIGphdmEuYmFzZS9qYXZhLnV0aWwuY29uY3VycmVudC5Db21wbGV0YWJsZUZ1dHVyZSRBc3luY1N1cHBseS5ydW4oQ29tcGxldGFibGVGdXR1cmUuamF2YToxNzczKQ0KIGphdmEuYmFzZS9qYXZhLnV0aWwuY29uY3VycmVudC5UaHJlYWRQb29sRXhlY3V0b3IucnVuV29ya2VyKFRocmVhZFBvb2xFeGVjdXRvci5qYXZhOjExNDQpDQogamF2YS5iYXNlL2phdmEudXRpbC5jb25jdXJyZW50LlRocmVhZFBvb2xFeGVjdXRvciRXb3JrZXIucnVuKFRocmVhZFBvb2xFeGVjdXRvci5qYXZhOjY0MikNCiBqYXZhLmJhc2UvamF2YS5sYW5nLlRocmVhZC5ydW4oVGhyZWFkLmphdmE6MTU4OSkNCg==" data-featherlight="image"><span class="badge badge-gradient-primary">base64 img</span></a>
+        
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>12:50:09 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: Failed to capture screenshot Root cause: "java.nio.channels.ClosedChannelException: "
+	at org.testng.Assert.fail(Assert.java:99)
+	at com.shaft.tools.io.internal.FailureReporter.fail(FailureReporter.java:38)
+	at com.shaft.gui.internal.image.ScreenshotManager.takeViewportScreenshot(ScreenshotManager.java:226)
+	at com.shaft.gui.internal.image.ScreenshotManager.takeFullPageScreenshot(ScreenshotManager.java:255)
+	at com.shaft.gui.internal.image.ScreenshotManager.takeScreenshot(ScreenshotManager.java:407)
+	at com.shaft.gui.internal.image.ScreenshotManager.internalCaptureScreenShot(ScreenshotManager.java:353)
+	at com.shaft.gui.internal.image.ScreenshotManager.captureScreenShot(ScreenshotManager.java:109)
+	at com.shaft.gui.browser.internal.BrowserActionsHelper.reportActionResult(BrowserActionsHelper.java:104)
+	at com.shaft.gui.browser.internal.BrowserActionsHelper.failAction(BrowserActionsHelper.java:64)
+	at com.shaft.gui.browser.internal.BrowserActionsHelper.failAction(BrowserActionsHelper.java:59)
+	at com.shaft.gui.browser.BrowserActions.navigateToURL(BrowserActions.java:356)
+	at com.shaft.gui.browser.BrowserActions.navigateToURL(BrowserActions.java:267)
+	at automationexercise.pages.LoginPage.urlNavigate(LoginPage.java:15)
+	at automationexercise.pages.LoginPage.urlNavigate(LoginPage.java:16)
+	at automationexercise.pages.LoginPage.urlNavigate(LoginPage.java:16)
+	at automationexercise.pages.LoginPage.urlNavigate(LoginPage.java:16)
+	at automationexercise.pages.LoginPage.urlNavigate(LoginPage.java:16)
+	at automationexercise.pages.LoginPage.urlNavigate(LoginPage.java:16)
+	at automationexercise.pages.LoginPage.urlNavigate(LoginPage.java:16)
+	at automationexercise.tests.LoginTest.validateInValidLogin(LoginTest.java:23)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+Caused by: org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8443260a32a6aee982acdf90375dfd81, screenshot []]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 124.0.6367.61, chrome: {chromedriverVersion: 124.0.6367.78 (a087f2dd364d..., userDataDir: C:\Users\Express\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64895}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64895/devtoo..., se:cdpVersion: 124.0.6367.61, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 60000, script: 60000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:35784/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8443260a32a6aee982acdf90375dfd81
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:550)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:326)
+	at com.shaft.gui.internal.image.ScreenshotManager.takeViewportScreenshot(ScreenshotManager.java:222)
+	... 42 more
+Caused by: java.io.UncheckedIOException: java.net.ConnectException
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:442)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+	... 46 more
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1045)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:224)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:259)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:235)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:202)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:786)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:874)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:208)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:210)
+	... 9 more
+</textarea>
+          
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Validate that the user can  login Successfully</p>
+            <p class="text-sm">
+              <span>12:50:09 AM</span> / <span>00:00:00:014</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Validate that the user can login Successfully</h5>
+<span class='badge badge-success'>04.25.2024 12:50:09 AM</span>
+<span class='badge badge-danger'>04.25.2024 12:50:09 AM</span>
+<span class='badge badge-default'>00:00:00:014</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>12:50:09 AM</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: Close current window failed. Root cause: "java.nio.channels.ClosedChannelException: "
+	at org.testng.Assert.fail(Assert.java:99)
+	at com.shaft.tools.io.internal.FailureReporter.fail(FailureReporter.java:38)
+	at com.shaft.gui.browser.internal.BrowserActionsHelper.failAction(BrowserActionsHelper.java:66)
+	at com.shaft.gui.browser.internal.BrowserActionsHelper.failAction(BrowserActionsHelper.java:54)
+	at com.shaft.gui.browser.BrowserActions.closeCurrentWindow(BrowserActions.java:483)
+	at automationexercise.tests.testBase.tearDown(testBase.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+Caused by: org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8443260a32a6aee982acdf90375dfd81, getPageSource []]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 124.0.6367.61, chrome: {chromedriverVersion: 124.0.6367.78 (a087f2dd364d..., userDataDir: C:\Users\Express\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64895}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64895/devtoo..., se:cdpVersion: 124.0.6367.61, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 60000, script: 60000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:35784/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8443260a32a6aee982acdf90375dfd81
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:550)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver.getPageSource(RemoteWebDriver.java:386)
+	at com.shaft.gui.browser.BrowserActions.closeCurrentWindow(BrowserActions.java:475)
+	... 31 more
+Caused by: java.io.UncheckedIOException: java.net.ConnectException
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:442)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+	... 35 more
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1045)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:224)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:259)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$2(PlainHttpConnection.java:235)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:202)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:786)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:874)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:208)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:210)
+	... 9 more
+</textarea>
+          
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+<span class='badge log badge-skip'>1</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+<span status="skip" class='badge log badge-skip'>1 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>00:50:02 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>Validate that the user can't login successfully </a>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>00:50:09 AM</td>
+<td>
+<a href="#" class="linked" test-id='2' id='2'>Validate that the user can login Successfully</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

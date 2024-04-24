@@ -16,8 +16,8 @@ public class hoverCategoriesPage {
         driver.element().hover(mainCategory);
         return this;
     }
-    @Step("Validate that the name of sub category that the user had choosen is the page tittle")
-    public hoverCategoriesPage validateTheChossenSubCategory(){
+    @Step("Validate that the name of sub category that the user had chosen is the page tittle")
+    public hoverCategoriesPage validateTheChosenSubCategory(){
         String textOfSubCategory = driver.element().getText(subCategory).toLowerCase();
         driver.element().click(subCategory);
         String textOfTitlePage = driver.element().getText(pageTitle).toLowerCase();

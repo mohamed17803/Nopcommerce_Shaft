@@ -20,6 +20,6 @@ public class homeSlidersTest extends testBase {
     }
     @BeforeClass
     public void beforeClass(){
-        testData = new JSONFileManager("C:\\Users\\Mtech\\IdeaProjects\\demonopcommerce\\src\\test\\resources\\automationexercise\\TestData\\homeSlidersTestData.json");
+        testData = new JSONFileManager("src/test/java/automationexercise/tests/homeSlidersTest.java");
     }
 }

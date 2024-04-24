@@ -6,9 +6,9 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import org.testng.annotations.*;
 
-@Epic("User acticty")
+@Epic("User activity")
 @Story("Follow Us")
-public class followUsTest extends testBase {
+public class FollowUsTest extends testBase {
     private JSONFileManager testData;
     @Test(description = "Validate that when the user click on FacebookLink Navigate to facebook page ")
     public void validateFacebook(){
@@ -19,7 +19,7 @@ public class followUsTest extends testBase {
     @Test(description = "Validate that when the user click on Twitterink Navigate to Twitter page")
     public void validateTwitter(){
         new followUsPage(driver).urlNavigate()
-                .validateTwitterink(testData.getTestData("expectedTwitterUrl"));
+                .validateTwitterlink(testData.getTestData("expectedTwitterUrl"));
     }
 
     @Test(description = "Validate that when the user click on RssLink Navigate to Rss page")
@@ -35,8 +35,8 @@ public class followUsTest extends testBase {
     }
     @BeforeClass
     @Description("Sitting Json File ")
-    public void beforeClass(){
-        testData = new JSONFileManager("C:\\Users\\Mtech\\IdeaProjects\\demonopcommerce\\src\\test\\resources\\automationexercise\\TestData\\followUsTestData.json");
+    public void beforeClass() {
+        testData = new JSONFileManager("src/test/resources/automationexercise/TestData/followUsTestData.json");
     }
 }
 

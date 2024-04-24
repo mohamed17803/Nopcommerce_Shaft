@@ -1,0 +1,7 @@
+
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                        Starting Execution: '2 out of 2' test cases in the current suite                                        
+                                      Test Method: 'automationexercise.tests.LoginTest.validateValidLogin'                                      
+                                       Test Description: 'Validate that the user can  login Successfully'                                       
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
