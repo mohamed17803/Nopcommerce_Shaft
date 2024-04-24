@@ -8,7 +8,7 @@
                     <include name="validateRegister" />
                 </methods>
             </class>
-            <class name="automationexercise.tests.loginTest">
+            <class name="automationexercise.tests.LoginTest">
                 <methods>
                     <include name="validateValidLogin" />
                     <include name="validateInValidLogin" />
