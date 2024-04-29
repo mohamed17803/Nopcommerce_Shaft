@@ -23,7 +23,7 @@ public class registerationTest extends testBase {
     }
     @BeforeClass
     @Description("Setting Json File ")
-    public void baforeCLass(){
+    public void beforeCLass(){
        testData= new JSONFileManager("src/test/resources/automationexercise/TestData/registerTestData.json");
     }
 }

@@ -22,9 +22,9 @@ public class registerationPage {
     private By registerButton=By.id("register-button");
     private By statusAlert=By.className("result");
 
-    @Step("Validate that the User registered succsesfully")
+    @Step("Validate that the User registered successfully")
     public registerationPage validateRegister(String alertText,String color){
-        driver.verifyThat().element(statusAlert).text().isEqualTo(alertText).perform();
+        driver.verifyThat().element(    statusAlert).text().isEqualTo(alertText).perform();
         driver.verifyThat().element(statusAlert).cssProperty("color").isEqualTo(color).perform();
         return this;
     }
