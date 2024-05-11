@@ -28,9 +28,9 @@
                     height: 220px;
                     border-radius: 50%;
                     background-image: conic-gradient(
-                        MediumSeaGreen 0.00% 0.0%,
-                        Tomato 0.0% 50.0%,
-                        Orange 50.0%);
+                        MediumSeaGreen 0.00% 75.0%,
+                        Tomato 75.0% 100.0%,
+                        Orange 100.0%);
                 }
                 .piechart1 {
                      display: block;
@@ -259,17 +259,17 @@
     <h1>Execution Summary Report</h1>
     <br>
     <div class="content">
-        <h2 style="clear:both; padding-top: 15px; margin-bottom: 3px">25/04/2024</h2>
-        <h5 style="clear:both; color:Grey">00:50:00 - 00:50:10 (09 sec, 622 millis) </h5>
+        <h2 style="clear:both; padding-top: 15px; margin-bottom: 3px">11/05/2024</h2>
+        <h5 style="clear:both; color:Grey">03:29:17 - 03:29:46 (28 sec, 851 millis) </h5>
         <br>
         <div style="border: 1px solid Grey" class="piechart"></div>
         <br>
-        <h2>0.00% Passed</h2>
+        <h2>75.00% Passed</h2>
         <br><br>
-        <h3><b>Total Test Cases</b>:&nbsp2&nbsp&nbsp[
-            <font style="color:MediumSeaGreen;"><b>Passed:</b>&nbsp0</font>&nbsp|
+        <h3><b>Total Test Cases</b>:&nbsp4&nbsp&nbsp[
+            <font style="color:MediumSeaGreen;"><b>Passed:</b>&nbsp3</font>&nbsp|
             <font style="color:Tomato;"><b>Failed:</b>&nbsp1</font>&nbsp|
-            <font style="color:Orange;"><b>Skipped:</b>&nbsp1</font>&nbsp]
+            <font style="color:Orange;"><b>Skipped:</b>&nbsp0</font>&nbsp]
         </h3>
         <br>
         <hr class="rounded1">
@@ -280,8 +280,8 @@
         <div class="piechart1"></div>
         <h5 style="padding-top: 5px;">0% Passed</h5>
         <hr class="rounded1">
-        <h5><b title="&#9432; Issues are problems that may relate to the tests and should be investigated further to open or close bugs; Issues are divided between the three following categories. (directly related to the @Issue annotation)">&#9432; </b><b>Total Issues</b>:&nbsp2&nbsp&nbsp[
-            <font style="color:Tomato;"><b title="&#9432; Defining the Failed tests that are not linked to bugs. (need to investigate and if needed, open new bugs and link them to the related tests using the @Issue annotation)">&#9432; </b><b>Tests that should Pass:</b>&nbsp2</font>&nbsp|
+        <h5><b title="&#9432; Issues are problems that may relate to the tests and should be investigated further to open or close bugs; Issues are divided between the three following categories. (directly related to the @Issue annotation)">&#9432; </b><b>Total Issues</b>:&nbsp1&nbsp&nbsp[
+            <font style="color:Tomato;"><b title="&#9432; Defining the Failed tests that are not linked to bugs. (need to investigate and if needed, open new bugs and link them to the related tests using the @Issue annotation)">&#9432; </b><b>Tests that should Pass:</b>&nbsp1</font>&nbsp|
             <font style="color:Orange;"><b title="&#9432; Defining the Passed tests that are already linked to open bugs. (need to investigate and remove the @Issue annotation and close the bug as the bug should be aready resolved)">&#9432; </b><b>Tests Resolved:</b>&nbsp0</font>&nbsp|
             <font style="color:MediumSeaGreen;"><b title="&#9432; Defining the Failed tests that are already linked to open bugs (using the @Issue annotation).">&#9432; </b><b>Tests that Fail as Expected:</b>&nbsp0</font>&nbsp]
         </h5>
@@ -316,7 +316,7 @@
         <th class="cell100 column6">issue id</th>
         </tr>
         </thead>
-        <tbody id="table"><tr class="row100 body"><td class="cell100 column0">1</td><td class="cell100 column1"></td><td class="cell100 column2">automationexercise.tests.LoginTest</td><td class="cell100 column3">Validate that the user can't login successfully </td><td class="cell100 column4">Failed to capture screenshot Root cause: "java.nio.channels.ClosedChannelException: "</td><td class="cell100 column5">&#10060; FAILED</td><td class="cell100 column6"></td></tr><tr class="row100 body"><td class="cell100 column0">2</td><td class="cell100 column1"></td><td class="cell100 column2">automationexercise.tests.LoginTest</td><td class="cell100 column3">Validate that the user can  login Successfully</td><td class="cell100 column4">Close current window failed. Root cause: "java.nio.channels.ClosedChannelException: "</td><td class="cell100 column5">&#128679; SKIPPED</td><td class="cell100 column6"></td></tr></tbody>
+        <tbody id="table"><tr class="row100 body"><td class="cell100 column0">1</td><td class="cell100 column1"></td><td class="cell100 column2">automationexercise.tests.FollowUsTest</td><td class="cell100 column3">Validate that when the user click on FacebookLink Navigate to facebook page </td><td class="cell100 column4"></td><td class="cell100 column5">&#9989; PASSED</td><td class="cell100 column6"></td></tr><tr class="row100 body"><td class="cell100 column0">2</td><td class="cell100 column1"></td><td class="cell100 column2">automationexercise.tests.FollowUsTest</td><td class="cell100 column3">Validate that when the user click on RssLink Navigate to Rss page</td><td class="cell100 column4">Doesn't match url expected [https://demo.nopcommerce.com/new-online-store-is-open] but found [https://demo.nopcommerce.com/news/rss/1]</td><td class="cell100 column5">&#10060; FAILED</td><td class="cell100 column6"></td></tr><tr class="row100 body"><td class="cell100 column0">3</td><td class="cell100 column1"></td><td class="cell100 column2">automationexercise.tests.FollowUsTest</td><td class="cell100 column3">Validate that when the user click on Twitterink Navigate to Twitter page</td><td class="cell100 column4"></td><td class="cell100 column5">&#9989; PASSED</td><td class="cell100 column6"></td></tr><tr class="row100 body"><td class="cell100 column0">4</td><td class="cell100 column1"></td><td class="cell100 column2">automationexercise.tests.FollowUsTest</td><td class="cell100 column3">Validate that when the user click on YoutubeLink Navigate to Youtube page</td><td class="cell100 column4"></td><td class="cell100 column5">&#9989; PASSED</td><td class="cell100 column6"></td></tr></tbody>
         </table>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div></div>
         <br>

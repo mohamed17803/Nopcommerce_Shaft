@@ -5,9 +5,9 @@
   "companyName": "IT Technology",
   "password": "P@ssw0rd",
   "confirmPassword": "P@ssw0rd",
-  "Day" : "5",
-  "Month": "December",
-  "Year": "2000",
+  "Day" : "16",
+  "Month": "July",
+  "Year": "2002",
   "alertText": "Your registration completed",
   "color": "rgba(76, 177, 124, 1)"
 }

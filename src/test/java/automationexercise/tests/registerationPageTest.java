@@ -8,7 +8,7 @@ import org.testng.annotations.*;
 
 @Epic("User Managment")
 @Story("Register")
-public class registerationTest extends testBase {
+public class registerationPageTest extends testBase {
     private JSONFileManager testData;
 
     @Test(description= "Validate that the User can register with valid account successfully")

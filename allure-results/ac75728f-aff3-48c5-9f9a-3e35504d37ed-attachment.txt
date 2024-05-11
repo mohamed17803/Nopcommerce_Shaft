@@ -1,0 +1,16 @@
+
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                        Starting Execution: '2 out of 4' test cases in the current suite                                        
+                                        Test Method: 'automationexercise.tests.FollowUsTest.validateRss'                                        
+                              Test Description: 'Validate that when the user click on RssLink Navigate to Rss page'                              
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[ReportManager] Target URL: "https://demo.nopcommerce.com/" @11-05-2024 03:29:26.0231 AM
+[ReportManager] Initial URL: "about:blank" @11-05-2024 03:29:26.0266 AM
+[ReportManager] Navigate to url "https://demo.nopcommerce.com/". @11-05-2024 03:29:28.0038 AM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "src/test/resources/automationexercise/TestData/followUsTestData.json"". @11-05-2024 03:29:28.0038 AM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "src/test/resources/automationexercise/TestData/followUsTestData.json"". @11-05-2024 03:29:28.0039 AM
+[ReportManager] Moved the mouse to the middle of the element. @11-05-2024 03:29:28.0285 AM
+[ReportManager] Click "By.className: rss". @11-05-2024 03:29:28.0316 AM
+[ReportManager] Get current url "https://demo.nopcommerce.com/news/rss/1". @11-05-2024 03:29:28.0635 AM
+[ReportManager] Successfully created attachment 'SHAFT Engine Logs - Current Method log: brforeMethod' @11-05-2024 03:29:28.0652 AM
