@@ -1,0 +1,15 @@
+
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                        Starting Execution: '1 out of 2' test cases in the current suite                                        
+                                   Test Method: 'automationexercise.tests.wishlistTest.validateSuccessMessage'                                   
+                   Test Description: 'Validate the Success message that appear when the user click on add to wishList button'                   
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[ReportManager] Target URL: "https://demo.nopcommerce.com/" @11-05-2024 03:36:10.0927 AM
+[ReportManager] Initial URL: "about:blank" @11-05-2024 03:36:10.0950 AM
+[ReportManager] Navigate to url "https://demo.nopcommerce.com/". @11-05-2024 03:36:12.0732 AM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "src/test/resources/automationexercise/TestData/wishlistTestData.json"". @11-05-2024 03:36:12.0736 AM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "src/test/resources/automationexercise/TestData/wishlistTestData.json"". @11-05-2024 03:36:12.0736 AM
+[ReportManager] Moved the mouse to the middle of the element. @11-05-2024 03:36:13.0904 AM
+[ReportManager] Click "Add to wishlist". @11-05-2024 03:36:13.0935 AM
+[ReportManager] Successfully created attachment 'SHAFT Engine Logs - Current Method log: brforeMethod' @11-05-2024 03:36:13.0950 AM

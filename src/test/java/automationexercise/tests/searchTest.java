@@ -26,7 +26,7 @@ public class searchTest extends testBase{
     @BeforeClass
     @Description("Sitting json file ")
     public void beforeMethod (){
-        testData = new JSONFileManager("C:\\Users\\Mtech\\IdeaProjects\\demonopcommerce\\src\\test\\resources\\automationexercise\\TestData\\searchTestData.json");
+        testData = new JSONFileManager("src/test/resources/automationexercise/TestData/searchTestData.json");
     }
 }
 

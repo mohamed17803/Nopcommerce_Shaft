@@ -11,11 +11,11 @@ import org.testng.annotations.*;
 public class wishlistTest extends testBase {
     private JSONFileManager testData;
 
-    @Test(description = "Validate the Success messege that apear when the user click on add to wishList button")
-    public void validateSuccesMessege(){
+    @Test(description = "Validate the Success message that appear when the user click on add to wishList button")
+    public void validateSuccessMessage(){
         new wishlistPage(driver).urlNavigate().validateSuccesMessege(testData.getTestData("background-color"));
     }
-    @Test(description = "Validate that the product added to wishList succesfully ")
+    @Test(description = "Validate that the product added to wishList successfully ")
     public void validateWishList(){
         new wishlistPage(driver).urlNavigate().validateAddToWishList();
     }
@@ -23,6 +23,6 @@ public class wishlistTest extends testBase {
     @BeforeClass
     @Description("Setting JSON File")
     public void beforeCLass(){
-        testData =new JSONFileManager("C:\\Users\\Mtech\\IdeaProjects\\demonopcommerce\\src\\test\\resources\\automationexercise\\TestData\\wishlistTestData.json");
+        testData =new JSONFileManager("src/test/resources/automationexercise/TestData/wishlistTestData.json");
     }
 }

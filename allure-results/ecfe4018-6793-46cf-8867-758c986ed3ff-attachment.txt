@@ -1,0 +1,18 @@
+
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                        Starting Execution: '2 out of 2' test cases in the current suite                                        
+                                      Test Method: 'automationexercise.tests.wishlistTest.validateWishList'                                      
+                                  Test Description: 'Validate that the product added to wishList successfully '                                  
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[ReportManager] Target URL: "https://demo.nopcommerce.com/" @11-05-2024 03:36:15.0792 AM
+[ReportManager] Initial URL: "about:blank" @11-05-2024 03:36:15.0811 AM
+[ReportManager] Navigate to url "https://demo.nopcommerce.com/". @11-05-2024 03:36:17.0501 AM
+[ReportManager] Moved the mouse to the middle of the element. @11-05-2024 03:36:17.0669 AM
+[ReportManager] Click "Add to wishlist". @11-05-2024 03:36:17.0695 AM
+[ReportManager] Waiting for element to be present; elementLocator "By.xpath: //div[@id="bar-notification"]//p[contains(text(),'The product has been added to your ')]", isExpectedToBeVisible"false"... @11-05-2024 03:36:18.0257 AM
+[ReportManager] Wait to be ready "Waited for the element's state of visibility to be (false). Element locator (By.xpath: //div[@id="bar-notification"]//p[contains(text(),'The product has been added to your ')])" against "By.xpath: //div[@id="bar-notification"]//p[contains(text(),'The product has been added to your ')]". @11-05-2024 03:36:22.0511 AM
+[ReportManager] Moved the mouse to the middle of the element. @11-05-2024 03:36:22.0674 AM
+[ReportManager] Click "By.className: wishlist-label". @11-05-2024 03:36:22.0695 AM
+[ReportManager] Get text "1" from "Qty.". @11-05-2024 03:36:23.0684 AM
+[ReportManager] Successfully created attachment 'SHAFT Engine Logs - Current Method log: brforeMethod' @11-05-2024 03:36:23.0690 AM
